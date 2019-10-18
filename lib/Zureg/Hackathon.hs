@@ -13,6 +13,7 @@ import           Data.Maybe                  (fromMaybe)
 import           System.Environment          (lookupEnv)
 import           Zureg.Hackathon.Interface
 import qualified Zureg.Hackathon.ZuriHac2019 as ZuriHac2019
+import qualified Zureg.Hackathon.Bristol2020 as Bristol2020
 
 -- | Load the hackathon stored in the 'ZUREG_HACKATHON' environment variable.
 withHackathonFromEnv
@@ -35,4 +36,5 @@ data SomeHackathon =
 hackathons :: [(String, IO SomeHackathon)]
 hackathons =
     [ ("zurihac2019", SomeHackathon <$> ZuriHac2019.newHackathon)
+    , ("bristol2020", SomeHackathon <$> Bristol2020.bristol2020)
     ]

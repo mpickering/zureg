@@ -34,6 +34,10 @@ Library
     Zureg.Form
     Zureg.Hackathon
     Zureg.Hackathon.Interface
+    Zureg.Hackathon.Bristol2020
+    Zureg.Hackathon.Bristol2020.Form
+    Zureg.Hackathon.Bristol2020.Model
+    Zureg.Hackathon.Bristol2020.Views
     Zureg.Hackathon.ZuriHac2019
     Zureg.Hackathon.ZuriHac2019.Form
     Zureg.Hackathon.ZuriHac2019.Model
