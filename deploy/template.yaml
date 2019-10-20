@@ -86,7 +86,7 @@ Resources:
             Resource: {'Fn::GetAtt': ['EmailDatabase', 'Arn']}
           - Effect: 'Allow'
             Action: ['ses:SendEmail']
-            Resource: {'Fn::Sub': 'arn:aws:ses:${AWS::Region}:${AWS::AccountId}:identity/zureg@zfoh.ch'}
+            Resource: {'Fn::Sub': 'arn:aws:ses:${AWS::Region}:${AWS::AccountId}:identity/bristol.haskell.2020@gmail.com'}
 
   # Allow ApiGateway to invoke the function
   LambdaPermission:

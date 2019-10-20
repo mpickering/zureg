@@ -33,11 +33,6 @@ sendRegisterSuccessEmail sendEmail Hackathon {..} info uuid = SendEmail.sendEmai
     , ""
     , "    " <> contactUrl
     , ""
-    , "For various questions, or socializing with other attendees,"
-    , "you can join our Slack organisation:"
-    , ""
-    , "    " <> slackUrl
-    , ""
     , "Warm regards"
     , "The " <> name <> " Registration Bot"
     ]

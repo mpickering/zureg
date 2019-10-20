@@ -38,11 +38,8 @@ import           Zureg.Main.Badges           (previewBadge, registrantToBadge)
 import           Zureg.Model
 import qualified Zureg.ReCaptcha             as ReCaptcha
 
-tShirtDeadline :: Time.UTCTime
-tShirtDeadline = Time.UTCTime (Time.fromGregorian 2019 5 7) (15 * 3600)
-
 badgesDeadline :: Time.UTCTime
-badgesDeadline = Time.UTCTime (Time.fromGregorian 2019 6 6) (16 * 3600 + 8 * 60)
+badgesDeadline = Time.UTCTime (Time.fromGregorian 2020 1 10) (16 * 3600 + 8 * 60)
 
 template :: H.Html -> H.Html -> H.Html
 template head' body = H.docTypeHtml $ do
@@ -141,12 +138,6 @@ ticket hackathon r@Registrant {..} = template
             H.h1 $ registerState rState
             whenJust rInfo $ registrantInfo
             whenJust rAdditionalInfo $ Hackathon.ticketView hackathon
-
-        case registrantRegisteredAt r of
-            Just at | at >= tShirtDeadline -> H.p $ do
-                "Because you registered after the T-Shirt were ordered,"
-                " you will not be able to pick one up on the first day."
-            _                              -> mempty
 
         when (rState == Just Cancelled) $
             H.form H.! A.method "GET" H.! A.action "register" $ do
@@ -248,10 +239,6 @@ scan hackathon registrant@Registrant {..} = H.ul $ do
         (_, Nothing)                        -> red "No Badge"
         (_, Just badge)                     ->
             "Badge: " <> H.strong (H.toHtml $ previewBadge badge)
-
-    case registrantRegisteredAt registrant of
-        Just at | at >= tShirtDeadline -> H.li $ H.strong $ red "Pick up T-Shirt later!"
-        _                              -> mempty
 
     whenJust rAdditionalInfo $ \ri -> H.li (Hackathon.scanView hackathon ri)
 

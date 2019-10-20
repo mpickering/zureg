@@ -1,4 +1,4 @@
-AWS_PROFILE=zfoh
+AWS_PROFILE=default
 AWS_REGION=us-east-1
 
 SOURCES=$(shell find src/ lib/ -name '*.hs') zureg.cabal
@@ -12,7 +12,6 @@ build/bin/zureg-lambda: build/image.txt $(SOURCES)
 	mkdir -p build/bin
 	docker run \
 		-m 4GB \
-		-p 8080:8080 \
 		--user $(shell id -u):$(shell id -g) \
 		--mount type=bind,source=$(shell pwd),target=/build \
 		--rm \

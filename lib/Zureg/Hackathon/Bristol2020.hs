@@ -20,11 +20,11 @@ bristol2020 = do
     reCaptchaSecret <- T.pack <$> getEnv "ZUREG_RECAPTCHA_SECRET"
 
     return Hackathon.Hackathon
-        { Hackathon.name = "Bristol Haskell 2019"
-        , Hackathon.baseUrl = "https://mpickering.github.io"
-        , Hackathon.contactUrl = "https://mpickering.github.io"
+        { Hackathon.name = "Bristol Haskell 2020"
+        , Hackathon.baseUrl = "https://gds2eyz1uh.execute-api.us-east-1.amazonaws.com/beta"
+        , Hackathon.contactUrl = "https://mpickering.github.io/bristol2020"
         , Hackathon.slackUrl = "https://"
-        , Hackathon.waitlist = True
+        , Hackathon.waitlist = False
 
         , Hackathon.registerForm = B20.additionalInfoForm
         , Hackathon.registerView = B20.additionalInfoView
@@ -34,11 +34,11 @@ bristol2020 = do
 
         , Hackathon.databaseConfig = Database.defaultConfig
         , Hackathon.sendEmailConfig = SendEmail.Config
-            { SendEmail.cFrom = "Bristol Registration Bot <noreply@bristol.ac.uk>"
+            { SendEmail.cFrom = "Bristol Registration Bot <bristol.haskell.2020@gmail.com>"
             }
         , Hackathon.reCaptchaConfig = ReCaptcha.Config
             { ReCaptcha.cEnabled = True
-            , ReCaptcha.cSiteKey = "6LfAV74UAAAAABMxQvT3yAv4MXaF7S4bZn6CTFCe"
+            , ReCaptcha.cSiteKey = "6Lf7d74UAAAAAPcMs1ZDnzqwrObnyIPM_puYCfpJ"
             , ReCaptcha.cSecretKey = reCaptchaSecret
             }
         , Hackathon.scannerSecret = scannerSecret
